@@ -49,4 +49,39 @@ public class Interval {
         else    vratiti += ")";
         return vratiti;
     }
+
+    public Interval intersect(Interval interval) {
+        Interval vrati = new Interval();
+        if(interval.pocetnaTacka >= this.pocetnaTacka && interval.pocetnaTacka <= this.krajnjaTacka && interval.krajnjaTacka >= this.krajnjaTacka){
+            vrati.pocetnaTacka = interval.pocetnaTacka;
+            vrati.krajnjaTacka = this.krajnjaTacka;
+            if(interval.pocetak)    vrati.pocetak = true;
+            else    vrati.pocetak = false;
+            if(this.kraj)   vrati.kraj = true;
+            else    vrati.kraj = false;
+        }
+        if(interval.pocetnaTacka <= this.pocetnaTacka && interval.krajnjaTacka >= this.pocetnaTacka && interval.krajnjaTacka <= this.krajnjaTacka){
+            vrati.pocetnaTacka = this.pocetnaTacka;
+            vrati.krajnjaTacka = interval.krajnjaTacka;
+            if(this.pocetak)    vrati.pocetak = true;
+            else    vrati.pocetak = false;
+            if(interval.kraj)   vrati.kraj = true;
+            else    vrati.kraj = false;
+        }
+        if(this.pocetnaTacka < interval.pocetnaTacka && interval.krajnjaTacka > this.krajnjaTacka && this.krajnjaTacka == interval.pocetnaTacka && (this.kraj == true || interval.pocetak == true)){
+            vrati.pocetnaTacka = this.krajnjaTacka;
+            vrati.krajnjaTacka = interval.pocetnaTacka;
+            if(this.kraj)   vrati.pocetak = true;
+            else if(interval.pocetak)   vrati.kraj = true;
+            else vrati.pocetak = true;
+        }
+        if(this.pocetnaTacka > interval.pocetnaTacka && interval.krajnjaTacka < this.krajnjaTacka && this.krajnjaTacka == interval.pocetnaTacka && (this.kraj == true || interval.pocetak == true)){
+            vrati.pocetnaTacka = interval.krajnjaTacka;
+            vrati.krajnjaTacka = this.pocetnaTacka;
+            if(this.pocetak)   vrati.kraj = true;
+            else if(interval.kraj)   vrati.pocetak = true;
+            else vrati.pocetak = true;
+        }
+        return vrati;
+    }
 }
