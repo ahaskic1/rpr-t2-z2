@@ -34,13 +34,13 @@ class IntervalTest {
         Interval i = new Interval(1.1, 2.5, true, false);
         assertFalse(i.isIn(2.5));
     }
-/*
+
     @org.junit.jupiter.api.Test
     void isNull() {
         Interval i = new Interval();
         assertTrue(i.isNull());
     }
-
+/*
     @org.junit.jupiter.api.Test
     void toString2() {
         Interval i = new Interval();

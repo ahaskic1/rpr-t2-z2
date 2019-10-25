@@ -30,4 +30,9 @@ public class Interval {
         if(pocetak == false && kraj == false && pocetnaTacka < v && krajnjaTacka > v)   return true;
         return false;
     }
+
+    public boolean isNull() {
+        if(pocetak == false && kraj == false && pocetnaTacka == 0 && krajnjaTacka == 0) return true;
+        return false;
+    }
 }
