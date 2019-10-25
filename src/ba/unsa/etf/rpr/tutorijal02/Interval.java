@@ -91,4 +91,10 @@ public class Interval {
         }
         return vrati;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Interval interval = (Interval) obj;
+        return this.pocetnaTacka == interval.pocetnaTacka && this.krajnjaTacka == interval.krajnjaTacka && this.pocetak == interval.pocetak && this.kraj == interval.kraj;
+    }
 }
