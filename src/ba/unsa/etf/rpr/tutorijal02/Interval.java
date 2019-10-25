@@ -35,4 +35,18 @@ public class Interval {
         if(pocetak == false && kraj == false && pocetnaTacka == 0 && krajnjaTacka == 0) return true;
         return false;
     }
+
+    @Override
+    public String toString() {
+        if(this.isNull()){
+            return "()";
+        }
+        String vratiti = new String();
+        if(pocetak == true) vratiti += "[";
+        else    vratiti += "(";
+        vratiti += pocetnaTacka + "," + krajnjaTacka;
+        if(kraj == true) vratiti += "]";
+        else    vratiti += ")";
+        return vratiti;
+    }
 }
