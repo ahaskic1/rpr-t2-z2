@@ -22,6 +22,10 @@ public class Interval {
         this.kraj = false;
     }
 
+    public static Interval intersect(Interval i, Interval i2) {
+        return i.intersect(i2);
+    }
+
 
     public boolean isIn(double v) {
         if(pocetak == true && kraj == true && pocetnaTacka <= v && krajnjaTacka >= v)   return true;
@@ -81,6 +85,9 @@ public class Interval {
             if(this.pocetak)   vrati.kraj = true;
             else if(interval.kraj)   vrati.pocetak = true;
             else vrati.pocetak = true;
+        }
+        if(interval.pocetnaTacka >= this.pocetnaTacka && interval.krajnjaTacka <= this.krajnjaTacka) {
+            return interval;
         }
         return vrati;
     }
