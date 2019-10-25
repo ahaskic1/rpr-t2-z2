@@ -21,4 +21,13 @@ public class Interval {
         this.pocetak = false;
         this.kraj = false;
     }
+
+
+    public boolean isIn(double v) {
+        if(pocetak == true && kraj == true && pocetnaTacka <= v && krajnjaTacka >= v)   return true;
+        if(pocetak == true && kraj == false && pocetnaTacka <= v && krajnjaTacka > v)   return true;
+        if(pocetak == false && kraj == true && pocetnaTacka < v && krajnjaTacka >= v)   return true;
+        if(pocetak == false && kraj == false && pocetnaTacka < v && krajnjaTacka > v)   return true;
+        return false;
+    }
 }

@@ -15,7 +15,7 @@ class IntervalTest {
     void toStringTest() {
         Interval i = new Interval(1.1, 2.5, true, false);
         assertEquals("[1.1,2.5)", i.toString());
-    }
+    }*/
 
     @org.junit.jupiter.api.Test
     void isIn() {
@@ -34,7 +34,7 @@ class IntervalTest {
         Interval i = new Interval(1.1, 2.5, true, false);
         assertFalse(i.isIn(2.5));
     }
-
+/*
     @org.junit.jupiter.api.Test
     void isNull() {
         Interval i = new Interval();
